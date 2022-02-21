@@ -1,13 +1,23 @@
 from rpg_combat.character import Character
 
+
 def test_initialization():
-    character = Character()
-    assert character.health == 1000
-    assert character.level == 1
-    assert character.alive
+    barbarian = Character()
+    assert barbarian.health == 1000
+    assert barbarian.level == 1
+    assert barbarian.alive
+
 
 def test_character_can_damage_character():
     barbarian = Character()
     rogue = Character()
     rogue.smack(barbarian)
     assert barbarian.health < 1000
+
+
+def test_character_can_kill():
+    barbarian = Character()
+    rogue = Character()
+    for n in range(0, 100):
+        barbarian.smack(rogue)
+    assert not rogue.alive
