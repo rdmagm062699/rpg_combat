@@ -6,3 +6,9 @@ class Character(object):
 
     def smack(self, character):
         character.health = character.health - 10
+        character.checkhealth()
+
+    def checkhealth(self):
+        if self.health <= 0:
+            self.health = 0
+            self.alive = False
