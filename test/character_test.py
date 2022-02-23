@@ -21,3 +21,11 @@ def test_character_can_kill():
     for n in range(0, 100):
         barbarian.smack(rogue)
     assert not rogue.alive
+
+
+def test_character_can_heal():
+    barbarian = Character()
+    barbarian.smack(barbarian)
+    old_health = barbarian.health
+    barbarian.heal(barbarian)
+    assert barbarian.health > old_health
