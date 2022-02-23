@@ -29,3 +29,18 @@ def test_character_can_heal():
     old_health = barbarian.health
     barbarian.heal(barbarian)
     assert barbarian.health > old_health
+
+
+def test_dead_cant_be_healed():
+    zombie = Character()
+    initial_health = zombie.health
+    zombie.alive = False
+    zombie.heal(zombie)
+    assert zombie.health == initial_health
+
+
+def test_dead_cant_be_raised_via_heal():
+    zombie = Character()
+    zombie.alive = False
+    zombie.heal(zombie)
+    assert not zombie.alive

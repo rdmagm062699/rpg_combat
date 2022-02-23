@@ -12,3 +12,6 @@ class Character(object):
         if self.health <= 0:
             self.health = 0
             self.alive = False
+
+    def heal(self, character):
+        character.health = character.health + 10
