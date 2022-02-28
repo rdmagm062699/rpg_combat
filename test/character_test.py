@@ -44,3 +44,10 @@ def test_dead_cant_be_raised_via_heal():
     zombie.alive = False
     zombie.heal(zombie)
     assert not zombie.alive
+
+
+def test_cannot_heal_above_max_health():
+    paladin = Character()
+    old_health = paladin.health
+    paladin.heal(paladin)
+    assert old_health == paladin.health
